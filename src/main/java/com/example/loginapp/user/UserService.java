@@ -31,4 +31,21 @@ public class UserService {
             }
         }
     }
+
+    public User 카카오로그인(String code) {
+        // 1. code로 카카오에서 토큰 받기 (위임완료) - oauth2.0
+
+        // 2. 토큰으로 사용자 정보 받기 - (강제 회원가입을 위한 정보)
+
+        // 3. 해당정보로 DB조회 (있을수, 없을수)
+
+        // 4. 있으면? - 조회된 유저정보 리턴
+
+        // 5. 없으면? - 강제 회원가입 (provider_pk)
+        //   유저네임 : (provider_pk)
+        //   비밀번호 : UUID → 아무도 몰라도 되는 비밀번호라 UUID로 처리
+        //   이메일 : email 받은 값
+        //   프로바이더 : kakao
+        return null;
+    }
 }
