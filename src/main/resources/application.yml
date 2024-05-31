@@ -5,6 +5,10 @@ server:
       force: true
   port: 8080
 spring:
+  mustache:
+    servlet:
+      expose-request-attributes: true
+      expose-session-attributes: true
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:test;MODE=MySQL
@@ -13,6 +17,9 @@ spring:
   h2:
     console:
       enabled: true
+  sql:
+    init:
+      data-locations: classpath:db/data.sql
   jpa:
     hibernate:
       ddl-auto: create # none, update
@@ -20,3 +27,4 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    defer-datasource-initialization: true # ???? create ?? ? ?? sql init ? ??
