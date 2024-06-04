@@ -14,7 +14,7 @@ public class NaverResponse {
         @JsonProperty("refresh_token")
         private String refreshToken;
         @JsonProperty("expires_in")
-        private Integer expiresIn;
+        private String expiresIn;
     }
 
     @Data
