@@ -16,8 +16,18 @@ public class UserController {
     // http://localhost:8080/oauth/callback?code=3u9fk
     @GetMapping("/oauth/callback")
     public String oauthCallback(String code) {
-        System.out.println("우와 콜백 됐다 : " + code);
+        System.out.println("우와 카카오 콜백 됐다 : " + code);
         User sessionUser = userService.카카오로그인(code);
+        session.setAttribute("sessionUser", sessionUser);
+        return "redirect:/shop";
+    }
+
+    //http://localhost:8080/oauth-naver/callback
+    @GetMapping("/oauth-naver/callback")
+    public String oauthNaverCallback(String code, String state) {
+        System.out.println("우와 네이버 코드 콜백 됐다 : " + code);
+        System.out.println("우와 네이버 state 콜백 됐다 : " + state);
+        User sessionUser = userService.네이버로그인(code, state);
         session.setAttribute("sessionUser", sessionUser);
         return "redirect:/shop";
     }
